@@ -44,6 +44,7 @@ export function valueToPosition(
   sliderLength,
   markerSize = 0,
 ) {
+  console.log("<=========", value, valuesArray, sliderLength, markerSize);
   if (value === undefined) return undefined;
   const index = closest(valuesArray, value);
   const arrLength = valuesArray.length - 1;
@@ -51,6 +52,7 @@ export function valueToPosition(
   const output =
     ((sliderLength - markerSize) * validIndex) / arrLength + markerSize / 2;
 
+  console.log("<=========", value, valuesArray, sliderLength, markerSize);
   return output;
 }
 
@@ -60,6 +62,7 @@ export function positionToValue(
   sliderLength,
   markerSize = 0,
 ) {
+  console.log("=========>", position, valuesArray, sliderLength, markerSize);
   if (position < 0 || sliderLength < position) {
     return null;
   } else {
@@ -69,7 +72,7 @@ export function positionToValue(
       (arrLength * (position - markerSize / 2 + offset * markerSize)) /
       sliderLength;
     const output = valuesArray[index];
-
+    console.log("=========>", position, valuesArray, sliderLength, markerSize);
     return output;
   }
 }
