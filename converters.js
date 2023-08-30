@@ -19,8 +19,8 @@ const closest = (array, n) => {
       } else if (maxI === minI + 1) {
         const minValue = array[minI];
         const maxValue = array[maxI];
-        const deltaMin = Math.abs(minValue - n);
-        const deltaMax = Math.abs(maxValue - n);
+        const deltaMin = minValue - n;
+        const deltaMax = maxValue - n;
 
         closestIndex = deltaMax <= deltaMin ? maxI : minI;
       } else if (midVal < n) {
@@ -68,7 +68,7 @@ export function positionToValue(
     const index =
       (arrLength * (position - markerSize / 2 + offset * markerSize)) /
       sliderLength;
-    const output = valuesArray[Math.round(index)];
+    const output = valuesArray[index];
 
     return output;
   }
@@ -80,9 +80,9 @@ export function createArray(start, end, step) {
   if (!step) {
     return result;
   } else {
-    const length = Math.abs((start - end) / step) + 1;
+    const length = (start - end) / step + 1;
     for (let i = 0; i < length; i++) {
-      result.push(start + i * Math.abs(step) * direction);
+      result.push(start + i * step * direction);
     }
     return result;
   }
