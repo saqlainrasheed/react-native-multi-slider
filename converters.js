@@ -44,6 +44,7 @@ export function valueToPosition(
   sliderLength,
   markerSize = 0,
 ) {
+  console.log("valueToPosition", valuesArray);
   if (value === undefined) return undefined;
   const index = closest(valuesArray, value);
   const arrLength = valuesArray.length - 1;
@@ -59,6 +60,7 @@ export function positionToValue(
   sliderLength,
   markerSize = 0,
 ) {
+  console.log("positionToValue", valuesArray);
   if (position < 0 || sliderLength < position) {
     return null;
   } else {
@@ -69,7 +71,7 @@ export function positionToValue(
       sliderLength;
 
     const output = valuesArray[Math.round(index)];
-    
+
     return output;
   }
 }
